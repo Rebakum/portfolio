@@ -12,16 +12,16 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   const navItems = [
-    { title: "About", href: "#about" },
-    { title: "Services", href: "#services" },
-    { title: "Skills", href: "#skills" },
-    { title: "Projects", href: "#projects" },
-    { title: "Blog", href: "#blog" },
-    { title: "Contact", href: "#contact" },
+    { title: "Home", href: "/#home" },
+    { title: "About", href: "/#about" },
+    { title: "Services", href: "/#services" },
+    { title: "Projects", href: "/#projects" },
+    { title: "Blogs", href: "/#blogs" },
+    { title: "Contact", href: "/#contact" },
   ];
 
   const activeId = useScrollSpy(
-    navItems.map((item) => item.href.replace("#", "")),
+    navItems.map((item) => item.href.replace("/#", "")),
     100
   );
 
@@ -48,22 +48,19 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-6">
-          {navItems.map(({ title, href }) => {
-            const id = href.replace("#", "");
-            const isActive = activeId === id;
-            return (
-              <li key={title} className="list-none">
-                <Link
-                  href={href}
-                  className={`font-medium transition-colors duration-200 ${
-                    isActive ? "text-pink-500" : "hover:text-pink-500"
-                  }`}
-                >
-                  {title}
-                </Link>
-              </li>
-            );
-          })}
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className={`px-4 py-2 transition-colors duration-200 ${
+                activeId === item.href.replace("/#", "")
+                  ? "text-pink-500"
+                  : "text-white"
+              }`}
+            >
+              {item.title}
+            </a>
+          ))}
         </ul>
         {/* Desktop social */}
         <ul className="hidden md:flex space-x-4">
@@ -115,14 +112,14 @@ export default function Navbar() {
           >
             <ul className="space-y-4">
               {navItems.map(({ title, href }) => {
-                const id = href.replace("#", "");
+                const id = href.replace("/#", "");
                 const isActive = activeId === id;
                 return (
                   <li key={title} className="list-none">
                     <Link
-                      href={href}
+                      href={`#${id}`} // ✅ anchor link
                       onClick={() => setIsOpen(false)}
-                      className={`block text-zinc-800 dark:text-zinc-100 font-medium transition-colors duration-200 ${
+                      className={`font-medium transition-colors duration-200 ${
                         isActive ? "text-pink-500" : "hover:text-pink-500"
                       }`}
                     >

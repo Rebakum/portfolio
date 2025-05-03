@@ -7,11 +7,48 @@ import {
   FaLinkedin,
   FaTwitter,
 } from "react-icons/fa";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
+  // Removed unused state 'result'
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    // Removed 'setResult' as 'result' state is no longer used
+    const formData = new FormData(event.target as HTMLFormElement);
+
+    formData.append("access_key", "b76ad003-7ff6-4c8b-8430-8f585a965ed1");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      toast.success("✅ Message sent successfully! I, contact letter", {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "colored",
+      });
+      (event.target as HTMLFormElement).reset();
+    } else {
+      console.log("Error", data);
+      // Removed 'setResult' as 'result' state is no longer used
+      toast.error("Failed to send message. Try again.");
+    }
+  };
+
   return (
     <section id="contact" className="bg-[#2c2f34] text-white py-10">
       <div className="container mx-auto px-5">
+        {/* Heading */}
         <div className="text-center  relative">
           <h2 className="text-9xl uppercase opacity-5 font-bold">Contact</h2>
           <div className="text-center mb-10 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
@@ -23,12 +60,12 @@ const Contact = () => {
         </div>
 
         {/* Contact Section */}
-        <div className="grid lg:grid-cols-3 grid-cols-1 gap-6 p-8 bg-[#2c2f34] rounded-lg ">
+        <div className="grid lg:grid-cols-3 grid-cols-1 gap-6 p-8 bg-[#2c2f34] rounded-lg">
           {/* Contact Info */}
           <div
             data-aos="fade-left "
             data-aos-delay="300"
-            className="col-span-1 "
+            className="col-span-1"
           >
             <div className="space-y-6">
               <h4 className="text-3xl mt-10 text-shadoww font-semibold">
@@ -94,18 +131,23 @@ const Contact = () => {
 
           {/* Contact Form */}
           <form
+            onSubmit={handleSubmit}
             data-aos="fade-right "
             data-aos-delay="600"
-            className="  space-y-6 col-span-2"
+            className="space-y-6 col-span-2"
           >
             <div className="flex justify-start items-center gap-3 mt-10">
               <input
                 type="text"
+                name="name"
+                required
                 className="w-full px-4 py-2 shadow-lg bg-[#1f2227] border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"
                 placeholder="Your Name"
               />
               <input
                 type="email"
+                name="email"
+                required
                 className="w-full shadow-lg px-4 py-2 bg-[#1f2227] border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"
                 placeholder="you@example.com"
               />
@@ -113,6 +155,8 @@ const Contact = () => {
             <div>
               <textarea
                 rows={5}
+                name="message"
+                required
                 className="w-full px-4 py-2 shadow-lg bg-[#1f2227] border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"
                 placeholder="Your message..."
               ></textarea>

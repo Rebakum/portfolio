@@ -1,31 +1,27 @@
 import { useEffect, useState } from "react";
 
-export default function useScrollSpy(ids: string[], offset = 0) {
-  const [activeId, setActiveId] = useState<string>("");
+export default function useScrollSpy(selectIds: string[] = [], offset = 100) {
+  const [activeId, setActiveId] = useState("");
 
   useEffect(() => {
-    const handler = () => {
-      const scrollPosition = window.scrollY + offset + 1;
-
-      const visibleSections = ids.filter((id) => {
+    const handleScroll = () => {
+      for (let i = 0; i < selectIds.length; i++) {
+        const id = selectIds[i];
         const el = document.getElementById(id);
-        if (!el) return false;
-        return el.offsetTop <= scrollPosition;
-      });
-
-      const currentSection = visibleSections[visibleSections.length - 1];
-      if (currentSection) {
-        setActiveId(currentSection);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= offset && rect.bottom >= offset) {
+            setActiveId(id);
+            break;
+          }
+        }
       }
     };
 
-    window.addEventListener("scroll", handler);
-    handler(); // run on mount
-
-    return () => {
-      window.removeEventListener("scroll", handler);
-    };
-  }, [ids, offset]);
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // run once on mount
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [selectIds, offset]);
 
   return activeId;
 }

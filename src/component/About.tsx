@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 const About = () => {
   return (
     <section id="about" className="bg-[#1c1e22] text-white py-16 px-6">
@@ -54,33 +56,33 @@ const About = () => {
           <hr className="border-[#858181]" />
           <p>
             <strong>LinkedIn:</strong>{" "}
-            <a
+            <Link
               href="https://www.linkedin.com/in/mst-rebeka-sultana-reba05/"
               className="text-pink-600"
               target="blank"
             >
               Profile
-            </a>
+            </Link>
           </p>
           <hr className="border-[#858181]" />
           <p>
             <strong>GitHub:</strong>{" "}
-            <a
+            <Link
               href="https://github.com/Rebakum"
               className="text-pink-600 "
               target="blank"
             >
               GitHub
-            </a>
+            </Link>
           </p>
           <hr className="border-[#858181] mb-5" />
-          <a
+          <Link
             href="https://drive.google.com/file/d/10AuWF5IBczmlZOv92q3-u8FybsTENSRO/view?usp=sharing"
             target="_blank"
             className="px-6 py-3 rounded-full bg-pink-600 text-white font-semibold hover:bg-pink-700 transition"
           >
             Download CV
-          </a>
+          </Link>
         </div>
       </div>
     </section>

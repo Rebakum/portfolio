@@ -1,12 +1,10 @@
-"use client";
-
 import About from "@/component/About";
 import Bannar from "@/component/Bannar";
 import AllBlogs from "@/component/Blogs/AllBlogs";
 import Contact from "@/component/Contact";
-import Project from "@/component/Project/Project";
 import Services from "@/component/Services";
 import Skills from "@/component/Skills";
+import ProjectsPage from "./projects/page";
 
 const HomePage = () => {
   return (
@@ -15,7 +13,7 @@ const HomePage = () => {
       <About />
       <Services />
       <Skills />
-      <Project />
+      <ProjectsPage />
       <AllBlogs />
       <Contact />
     </div>

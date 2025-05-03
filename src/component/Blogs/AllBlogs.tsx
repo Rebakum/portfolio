@@ -25,7 +25,7 @@ const blogData = [
 
 const AllBlogs = () => {
   return (
-    <section id="blog" className="py-16 bg-gray-900 text-white">
+    <section id="blogs" className="py-16 bg-gray-900 text-white">
       <div className="text-center mb-10 relative">
         <h2 className="text-9xl uppercase opacity-5 font-bold">My Hobby</h2>
 
