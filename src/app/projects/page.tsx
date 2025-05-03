@@ -1,25 +1,8 @@
 "use client";
 
 import ProjectCard from "@/component/Project/ProjectCard";
-import { useEffect, useState } from "react";
 
 const ProjectsPage = () => {
-  const [projects, setProjects] = useState([]);
-
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const res = await fetch("http://localhost:5000/projects");
-        const data = await res.json();
-        setProjects(data);
-      } catch (error) {
-        console.error("Failed to fetch projects:", error);
-      }
-    };
-
-    fetchProjects();
-  }, []);
-
   return (
     <section id="projects" className="bg-[#2c2f34] text-white py-16 px-6">
       <div className="text-center mb-10 relative">
@@ -32,12 +15,89 @@ const ProjectsPage = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {projects.map((project: any) => (
-          <ProjectCard key={project.id || project._id} project={project} />
+        {projects.map((project) => (
+          <ProjectCard
+            key={project.id}
+            project={{ ...project, id: project.id.toString() }}
+          />
         ))}
       </div>
     </section>
   );
 };
+const projects = [
+  {
+    id: 1,
+    category: "new",
+    name: "Bike Store",
+    title: "Full-Stack Bike Shop Application",
+    projectUrl: "https://bike-store-b4-a4.vercel.app/",
+    image: [
+      "https://i.ibb.co/vvL7K00Q/bike-store-10.png",
+      "https://i.ibb.co/d0tChtn0/bike-store-20.png",
+      "https://i.ibb.co/3ykfxKQY/bike-store-30.png",
+    ],
+    description:
+      "A full-stack web application for browsing, purchasing, and managing bikes. Features include user registration, role-based access (Admin/User), product management, SurjoPay payment integration, order tracking, and a responsive design. Built with TypeScript, Express.js, MongoDB, and React.",
+    technologiesUsed: [
+      "TypeScript",
+      "React",
+      "Express.js",
+      "MongoDB",
+      "SurjoPay",
+      "Tailwind CSS",
+      "JWT",
+      "Node.js",
+    ],
+  },
+  {
+    id: 2,
+    category: "new",
+    name: "BasaFinder",
+    title: "Smart Rental & Housing Solution",
+    projectUrl: "https://basa-finder-client-swart.vercel.app/",
+    image: [
+      "https://i.ibb.co/rGmzFC4Q/basa-finder-10.png",
+      "https://i.ibb.co/kV0Zn5F8/basa-finder-20.png",
+      "https://i.ibb.co/mr7cZNhT/basa-finder-30.png",
+    ],
+    description:
+      "A full-stack rental platform with dashboards for Admin, Landlord, and Tenant. Includes features like property listing, booking, approval workflow, Stripe payment integration, and JWT authentication.",
+    technologiesUsed: [
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT",
+      "Stripe",
+      "Tailwind CSS",
+      "React Hook Form",
+    ],
+  },
+  {
+    id: 3,
+    category: "old",
+    name: "Tourist Guide",
+    title: "Travel Companion Web App",
+    projectUrl: "https://tourist-guide-3bd84.firebaseapp.com",
+    image: [
+      "https://i.ibb.co/57XLZWd/tourist-10.png",
+      "https://i.ibb.co/FkfFV88n/tourist-20.png",
+      "https://i.ibb.co/63g4d7j/tourist-30.png",
+    ],
+    description:
+      "An interactive travel planning app with destination listings, guide bookings, and admin panel features. Built using MERN stack with secure user authentication.",
+    technologiesUsed: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Firebase",
+      "JWT",
+      "Tailwind CSS",
+    ],
+  },
+];
 
 export default ProjectsPage;

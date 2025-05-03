@@ -7,7 +7,16 @@ import "swiper/css/pagination";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-const ProjectDetails = ({ project }) => {
+interface Project {
+  title: string;
+  name: string;
+  description: string;
+  image: string[];
+  technologiesUsed?: string[];
+  projectUrl: string;
+}
+
+const ProjectDetails = ({ project }: { project: Project }) => {
   return (
     <section className="container mx-auto px-5 py-16 bg-[#2c2f34]">
       {/* Title with Background Effect */}

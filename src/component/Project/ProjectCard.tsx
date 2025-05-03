@@ -51,7 +51,10 @@ const ProjectCard = ({ project }: { project: Project }) => {
         </div>
       </Link>
 
-      <Link href={`/projects/${project.id}`}>
+      <Link
+        href={`/projects/${project.id}`}
+        className="mt-4 flex justify-center items-center"
+      >
         <button className="p-2 rounded-full bg-pink-600 text-white font-semibold hover:bg-pink-700 transition">
           View Details
         </button>
