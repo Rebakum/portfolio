@@ -12,9 +12,9 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   const navItems = [
-    { title: "Home", href: "/#home" },
     { title: "About", href: "/#about" },
     { title: "Services", href: "/#services" },
+    { title: "Skills", href: "/#skills" },
     { title: "Projects", href: "/#projects" },
     { title: "Blogs", href: "/#blogs" },
     { title: "Contact", href: "/#contact" },
@@ -37,7 +37,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "shadow-md bg-black text-white"
+          ? "shadow-md bg-gray-950 text-white"
           : "bg-transparent text-gray-100"
       }`}
     >
@@ -108,16 +108,16 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="md:hidden bg-white px-6 pt-4 pb-6 shadow-md"
+            className="md:hidden  px-6 pt-4 pb-6 shadow-md bg-gray-950"
           >
-            <ul className="space-y-4">
+            <ul className="space-y-4 ">
               {navItems.map(({ title, href }) => {
                 const id = href.replace("/#", "");
                 const isActive = activeId === id;
                 return (
                   <li key={title} className="list-none">
                     <Link
-                      href={`#${id}`} // ✅ anchor link
+                      href={`/#${id}`} // ✅ anchor link
                       onClick={() => setIsOpen(false)}
                       className={`font-medium transition-colors duration-200 ${
                         isActive ? "text-pink-500" : "hover:text-pink-500"

@@ -53,13 +53,13 @@ export default function Bannar() {
 
           <div className="mt-6 flex justify-center gap-4 flex-wrap">
             <Link
-              href="contact"
+              href="/#contact"
               className="px-6 py-3 rounded-full bg-pink-600 text-white font-semibold hover:bg-pink-700 transition"
             >
               Hire Me
             </Link>
             <Link
-              href="projects"
+              href="/#projects"
               className="px-6 py-3 rounded-full border border-pink-600 text-pink-600 font-semibold hover:bg-pink-100 dark:hover:bg-pink-950 transition"
             >
               View Projects

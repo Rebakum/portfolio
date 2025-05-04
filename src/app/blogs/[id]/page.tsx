@@ -1,62 +1,47 @@
 "use client";
-
 import Image from "next/image";
-import Link from "next/link";
+import { use } from "react";
 
-const AllBlogs = () => {
+const DetailsBlogPage = ({ params }: { params: Promise<{ id: string }> }) => {
+  const { id } = use(params);
+
+  const singleBlog = blogs.find((blog) => blog.id === Number(id));
+
+  if (!singleBlog) {
+    return <div className="text-white text-center mt-10">Blog not found</div>;
+  }
+
+  const { title, author, description, image, date } = singleBlog;
+
   return (
-    <section id="blogs" className="py-16 bg-gray-900 text-white">
-      <div className="text-center mb-10 relative">
-        <h2 className="lg:text-9xl  text-6xl uppercase opacity-5 font-bold">
-          My Hobby
-        </h2>
+    <section className="container mx-auto px-5 py-16 bg-[#2c2f34]">
+      <div
+        data-aos="fade-bottom"
+        data-aos-delay="300"
+        className="max-w-4xl mx-auto p-6 text-white bg-[#2c2f34] rounded-lg shadow-lg hover:shadow-pink-500/20 transition-shadow duration-300"
+      >
+        <h1 className="text-4xl font-bold mb-4">{title}</h1>
 
-        <div className="text-center mb-10  absolute  left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
-          <h2 className="lg:text-4xl text-x2l font-bold text-white">
-            {" "}
-            All Latest Blogs
-          </h2>
-          <div className="mt-2 w-24 h-1 bg-pink-500 mx-auto rounded"></div>
-        </div>
-      </div>
+        <Image
+          src={image}
+          alt={title}
+          width={800}
+          height={400}
+          className="w-full h-96 object-cover rounded-lg mb-6"
+        />
 
-      <div className="grid gap-8 md:grid-cols-2">
-        {blogs.map((blog) => (
-          <div
-            data-aos="fade-left"
-            data-aos-delay="300"
-            key={blog.id}
-            className="bg-[#2c2f34] rounded-lg  overflow-hidden shadow-lg hover:shadow-pink-500/20 transition-shadow duration-300"
-          >
-            <Image
-              src={blog.image}
-              alt={blog.title}
-              width={500}
-              height={300}
-              className="w-full h-56 object-cover"
-            />
-            <div className="p-6">
-              <h3 className="text-2xl font-semibold mb-2">{blog.title}</h3>
-              <p className="text-sm text-gray-400 mb-3">
-                By {blog.author} | {new Date(blog.date).toLocaleDateString()}
-              </p>
-              <p className="text-gray-300 mb-4">
-                {blog.description.slice(0, 40)}
-              </p>
+        <p className="text-gray-400 mb-4">
+          By {author} | {new Date(date).toLocaleDateString()}
+        </p>
 
-              <Link
-                href={`/blogs/${blog.id}`}
-                className="text-pink-500 cuursor-pointer"
-              >
-                Read More →
-              </Link>
-            </div>
-          </div>
-        ))}
+        <p className="text-lg leading-relaxed whitespace-pre-line">
+          {description}
+        </p>
       </div>
     </section>
   );
 };
+
 const blogs = [
   {
     id: 1,
@@ -119,4 +104,5 @@ const blogs = [
       "1. MongoDB হল একটি NoSQL ডাটাবেজ। 2. Document-based স্টোরেজ ব্যবহার করে। 3. Schema flexible হয়। 4. CRUD অপারেশন করা যায় সহজে। 5. Mongoose দিয়ে ডেটা ভ্যালিডেশন ও মডেলিং সহজ। 6. Aggregation pipeline বিশ্লেষণের জন্য ব্যবহৃত হয়।",
   },
 ];
-export default AllBlogs;
+
+export default DetailsBlogPage;

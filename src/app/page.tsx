@@ -1,9 +1,9 @@
 import About from "@/component/About";
 import Bannar from "@/component/Bannar";
-import AllBlogs from "@/component/Blogs/AllBlogs";
 import Contact from "@/component/Contact";
 import Services from "@/component/Services";
 import Skills from "@/component/Skills";
+import BlogsPage from "./blogs/page";
 import ProjectsPage from "./projects/page";
 
 const HomePage = () => {
@@ -14,7 +14,7 @@ const HomePage = () => {
       <Services />
       <Skills />
       <ProjectsPage />
-      <AllBlogs />
+      <BlogsPage />
       <Contact />
     </div>
   );

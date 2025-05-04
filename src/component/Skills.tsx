@@ -1,5 +1,4 @@
-
-"use client"
+"use client";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
@@ -151,11 +150,11 @@ const Skills = () => {
   return (
     <section id="skills" className="bg-[#1c1e22] py-16 px-6">
       <div className="text-center mb-10 relative">
-        <h2 className="text-9xl uppercase opacity-5 text-white font-bold">
+        <h2 className="lg:text-9xl  text-6xl uppercase opacity-5 text-white font-bold">
           Summary
         </h2>
         <div className="text-center mb-10 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
-          <h2 className="text-4xl font-bold text-white">Skills</h2>
+          <h2 className="lg:text-4xl text-2xl font-bold text-white">Skills</h2>
           <div className="mt-2 w-24 h-1 bg-pink-500 mx-auto rounded"></div>
         </div>
       </div>
@@ -191,7 +190,7 @@ const Skills = () => {
         <div
           data-aos="zoom-in"
           data-aos-delay="100"
-          className="bg-[#2c2f34] shadow-2xl rounded p-5 mb-4  "
+          className="bg-[#2c2f34] shadow-lg hover:shadow-pink-500/20 transition-shadow duration-300 rounded p-5 mb-4  "
         >
           <p className="inline-block bg-pink-600 text-white text-sm font-medium px-3 py-1 rounded mb-2">
             2003 - 2007
@@ -211,7 +210,7 @@ const Skills = () => {
         <div
           data-aos="zoom-in"
           data-aos-delay="300"
-          className="bg-[#2c2f34] shadow-2xl rounded p-5 mb-4"
+          className="bg-[#2c2f34] shadow-lg hover:shadow-pink-500/20 transition-shadow duration-300 rounded p-5 mb-4"
         >
           <p className="inline-block bg-pink-600 text-white text-sm font-medium px-3 py-1 rounded mb-2">
             1999 - 2002

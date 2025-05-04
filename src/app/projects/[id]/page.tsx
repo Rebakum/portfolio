@@ -1,7 +1,5 @@
 "use client";
-"use client";
 
-import { projects } from "@/data/projects"; // Adjust path if needed
 import Image from "next/image";
 import { use } from "react";
 import "swiper/css";
@@ -32,17 +30,23 @@ const ProjectDetailsPage = ({
       <section className="container mx-auto px-5 py-16 bg-[#2c2f34]">
         {/* Title with Background Effect */}
         <div className="text-center my-10 relative">
-          <h2 className="text-9xl text-gray-100 uppercase opacity-5 font-bold">
+          <h2 className="lg:text-9xl text-6xl text-gray-100 uppercase opacity-5 font-bold">
             My Project
           </h2>
           <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <h2 className="text-4xl font-bold text-white">{title}</h2>
+            <h2 className="lg:text-4xl text-2xl font-bold text-white">
+              {title}
+            </h2>
             <div className="mt-2 w-24 h-1 bg-pink-500 mx-auto rounded"></div>
           </div>
         </div>
 
         {/* Content Grid */}
-        <div className="grid lg:grid-cols-2 grid-cols-1 gap-6 p-8 rounded-lg">
+        <div
+          data-aos="fade-right"
+          data-aos-delay="300"
+          className="grid lg:grid-cols-2 grid-cols-1 gap-6 p-8 rounded-lg"
+        >
           {/* Swiper Slider */}
           <div>
             <Swiper
@@ -69,7 +73,7 @@ const ProjectDetailsPage = ({
           </div>
 
           {/* Project Info */}
-          <div>
+          <div className="shadow-lg hover:shadow-pink-500/20 transition-shadow duration-300">
             <h3 className="text-2xl text-gray-100 font-semibold mb-4">
               Project Overview
             </h3>

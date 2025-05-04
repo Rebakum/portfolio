@@ -1,11 +1,5 @@
 import Link from "next/link";
-import {
-    FaFacebook,
-    FaGithub,
-    FaInstagram,
-    FaLinkedin,
-    FaTwitter,
-} from "react-icons/fa";
+import { FaFacebook, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -15,8 +9,8 @@ const Footer = () => {
         <div>
           <h3 className="text-2xl font-bold mb-4">About Me</h3>
           <p className="text-gray-400">
-            I&apos;m Rebeka Sultana, a passionate full-stack web developer dedicated
-            to building user-friendly and scalable applications.
+            I&apos;m Rebeka Sultana, a passionate full-stack web developer
+            dedicated to building user-friendly and scalable applications.
           </p>
         </div>
 
@@ -25,24 +19,24 @@ const Footer = () => {
           <h3 className="text-2xl font-bold mb-4">Quick Links</h3>
           <ul className="space-y-2 text-gray-400">
             <li>
-              <Link href="/" className="hover:text-pink-500">
-                Home
+              <Link href="/#" className="hover:text-pink-500">
+                гє๒єкค✍
               </Link>
             </li>
             <li>
-              <a href="/about" className="hover:text-pink-500">
+              <Link href="/#about" className="hover:text-pink-500">
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/projects" className="hover:text-pink-500">
+              <Link href="/#projects" className="hover:text-pink-500">
                 Projects
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/contact" className="hover:text-pink-500">
+              <Link href="/#contact" className="hover:text-pink-500">
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -54,41 +48,34 @@ const Footer = () => {
           <p className="text-gray-400 mb-4">📍 Kushtia, Bangladesh</p>
 
           <div className="flex space-x-4 text-pink-500 text-2xl">
-            <a
-                             href="https://www.linkedin.com/in/mst-rebeka-sultana-reba05/"
-                             target="_blank"
-                             rel="noopener noreferrer"
-                           >
-                             <FaLinkedin />
-                           </a>
-                           <a
-                             href="https://github.com/Rebakum"
-                             target="_blank"
-                             rel="noopener noreferrer"
-                           >
-                             <FaGithub />
-                           </a>
-                           <a
-                             href="https://www.facebook.com/profile.php?id=61554784244564"
-                             target="_blank"
-                             rel="noopener noreferrer"
-                           >
-                             <FaFacebook />
-                           </a>
-            <a
+            <Link
+              href="https://www.linkedin.com/in/mst-rebeka-sultana-reba05/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin />
+            </Link>
+            <Link
+              href="https://github.com/Rebakum"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub />
+            </Link>
+            <Link
+              href="https://www.facebook.com/profile.php?id=61554784244564"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaFacebook />
+            </Link>
+            <Link
               href="https://twitter.com/your-profile"
               target="_blank"
               rel="noreferrer"
             >
               <FaTwitter />
-            </a>
-            <a
-              href="https://instagram.com/your-profile"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaInstagram />
-            </a>
+            </Link>
           </div>
         </div>
       </div>
