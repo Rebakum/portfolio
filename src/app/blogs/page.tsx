@@ -5,61 +5,66 @@ import Link from "next/link";
 
 const BlogsPage = () => {
   return (
-    <section id="blogs" className="py-16 bg-gray-900 text-white">
-      <div className="text-center mb-10 relative">
-        <h2 className="lg:text-9xl text-6xl uppercase opacity-5 font-bold">
-          My Hobby
-        </h2>
-
-        <div className="text-center mb-10  absolute  left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
-          <h2 className="lg:text-4xl text-2xl font-bold text-white">
-            Latest Blogs
+    <section
+      id="blogs"
+      className="py-16 bg-gray-900 mx-auto container text-white"
+    >
+      <div className="lg:px-10 px-4">
+        <div className="text-center mb-10 relative">
+          <h2 className="lg:text-9xl text-6xl uppercase opacity-5 font-bold">
+            My Hobby
           </h2>
-          <div className="mt-2 w-24 h-1 bg-pink-500 mx-auto rounded"></div>
-        </div>
-      </div>
 
-      <div className="grid gap-8 md:grid-cols-2">
-        {blogs.slice(0, 2).map((blog) => (
-          <div
-            data-aos="fade-left"
-            data-aos-delay="300"
-            key={blog.id}
-            className="bg-[#2c2f34] rounded-lg  overflow-hidden shadow-lg hover:shadow-pink-500/20 transition-shadow duration-300"
-          >
-            <Image
-              src={blog.image}
-              alt={blog.title}
-              width={500}
-              height={300}
-              className="w-full h-56 object-cover"
-            />
-            <div className="p-6">
-              <h3 className="text-2xl font-semibold mb-2">{blog.title}</h3>
-              <p className="text-sm text-gray-400 mb-3">
-                By {blog.author} | {new Date(blog.date).toLocaleDateString()}
-              </p>
-              <p className="text-gray-300 mb-4">
-                {blog.description.slice(0, 40)}
-              </p>
-
-              <Link
-                href={`/blogs/${blog.id}`}
-                className="text-pink-500 cursor-pointer"
-              >
-                Read More →
-              </Link>
-            </div>
+          <div className="text-center mb-10  absolute  left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
+            <h2 className="lg:text-4xl text-2xl font-bold text-white">
+              Latest Blogs
+            </h2>
+            <div className="mt-2 w-24 h-1 bg-pink-500 mx-auto rounded"></div>
           </div>
-        ))}
-      </div>
-      <div className="text-center mt-10">
-        <Link
-          href="/allBlogs"
-          className="px-6 py-3 rounded-full bg-pink-600 text-white font-semibold hover:bg-pink-700 transition"
-        >
-          View All Blogs
-        </Link>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          {blogs.slice(0, 4).map((blog) => (
+            <div
+              data-aos="fade-left"
+              data-aos-delay="300"
+              key={blog.id}
+              className="bg-[#2c2f34] rounded-lg  overflow-hidden shadow-lg hover:shadow-pink-500/20 transition-shadow duration-300"
+            >
+              <Image
+                src={blog.image}
+                alt={blog.title}
+                width={500}
+                height={300}
+                className="w-full h-56 object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-2xl font-semibold mb-2">{blog.title}</h3>
+                <p className="text-sm text-gray-400 mb-3">
+                  By {blog.author} | {new Date(blog.date).toLocaleDateString()}
+                </p>
+                <p className="text-gray-300 mb-4">
+                  {blog.description.slice(0, 40)}
+                </p>
+
+                <Link
+                  href={`/blogs/${blog.id}`}
+                  className="text-pink-500 cursor-pointer"
+                >
+                  Read More →
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="text-center mt-10">
+          <Link
+            href="/allBlogs"
+            className="px-6 py-3 rounded-full bg-pink-600 text-white font-semibold hover:bg-pink-700 transition"
+          >
+            View All Blogs
+          </Link>
+        </div>
       </div>
     </section>
   );

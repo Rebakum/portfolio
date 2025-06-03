@@ -3,8 +3,8 @@ import { FaFacebook, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#1f2125] text-white py-12">
-      <div className="container mx-auto px-5 grid md:grid-cols-3 sm:grid-cols-2 gap-8">
+    <footer className="bg-[#1f2125] container mx-auto text-white py-12">
+      <div className=" px-10 justify-center  grid md:grid-cols-3 sm:grid-cols-2 gap-10">
         {/* About */}
         <div>
           <h3 className="text-2xl font-bold mb-4">About Me</h3>
@@ -15,7 +15,7 @@ const Footer = () => {
         </div>
 
         {/* Quick Links */}
-        <div>
+        <div className="">
           <h3 className="text-2xl font-bold mb-4">Quick Links</h3>
           <ul className="space-y-2 text-gray-400">
             <li>
@@ -42,7 +42,7 @@ const Footer = () => {
         </div>
 
         {/* Contact & Social */}
-        <div>
+        <div className="">
           <h3 className="text-2xl font-bold mb-4">Contact Info</h3>
           <p className="text-gray-400 mb-2">📧 rebakpi@gmail.com</p>
           <p className="text-gray-400 mb-4">📍 Kushtia, Bangladesh</p>
