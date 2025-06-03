@@ -53,7 +53,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
           )}
         </div>
       </Link>
-      <div className="text-center flex justify-between items-center gap-5 my-4">
+      <div className="text-center flex lg:flex-row justify-between flex-col items-center gap-5 my-4">
         <h1 className="text-xl text-center font-semibold mb-4">
           {" "}
           Name:
@@ -61,7 +61,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
         </h1>
         <Link
           href={`/projects/${project.id}`}
-          className="px-6 py-3 rounded-full bg-pink-600 text-white font-semibold hover:bg-pink-700 transition"
+          className="px-6 py-3 rounded-full flex justify-center items-center sm:text-sm bg-pink-600 text-white font-semibold hover:bg-pink-700 transition"
         >
           View Details
         </Link>
